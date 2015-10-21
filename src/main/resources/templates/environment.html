@@ -11,7 +11,7 @@
     <h1>Static Header</h1>
 </div>
 
-<h2>Environment</h2>
+<h2 th:text="#{environment.header}"></h2>
 
 <table class="nv-table">
     <tr>
@@ -19,7 +19,7 @@
         <th> Value </th>
     </tr>
     <tr th:each="env,iterationStatus  : ${environment}">
-        <td class="nv-data" th:text="${env.key}"></td>
+        <td th:text="${env.key}"></td>
         <td class="nv-data" th:text="${env.value}"></td>
     </tr>
 </table>
