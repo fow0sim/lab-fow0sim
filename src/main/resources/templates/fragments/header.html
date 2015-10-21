@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<div th:fragment="header">
+    <div id="header">
+        <img src="images/vw_logo.gif" alt="VW"/>
+        <h1 th:text="#{app.header}"></h1>
+    </div>
+    <ul id="menu">
+        <li><a href="/" th:href="@{/}">Home</a></li>
+        <li><a href="/environment" th:href="@{/environment}">Environment</a></li>
+        <li><a href="/impressum" th:href="@{/impressum}">Impressum</a></li>
+    </ul>
+</div>
+
+</body>
+</html>

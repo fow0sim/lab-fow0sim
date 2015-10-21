@@ -1,0 +1,87 @@
+body {
+    font-family: Helvetica, sans-serif;
+}
+
+h2 {
+    font-size: 14pt;
+    color: darkblue;
+}
+
+p {
+    font-size: 10pt;
+}
+
+div#header {
+    padding-top: 24px;
+}
+
+div#header img {
+    float: left;
+    margin-left: 48px;
+    margin-right: 24px;
+}
+
+div#header h1 {
+    font-weight: bold;
+    font-size: 18pt;
+    vertical-align:bottom;
+    color: lightslategrey;
+}
+
+ul#menu {
+    background-color: lightslategrey;
+    height: 20px;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 15px;
+}
+
+ul#menu li {
+    list-style: none;
+    display: inline;
+}
+
+ul#menu a {
+    font-weight: bold;
+    font-size: 10pt;
+    padding-top: 3px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    color: #FFFFFF;
+    background-color: lightslategrey;
+    float: left;
+    width: 100px;
+    height: 20px;
+    border-right:1px solid #FFFFFF;
+}
+
+ul#menu a:hover {
+    background-color: darkslateblue;
+}
+
+div#copyright {
+    margin-top: 16px;
+    border-top: 2px solid lightslategrey;
+    color: lightsteelblue;
+}
+
+div#copyright p {
+    font-size: 8pt;
+    padding-left: 5px;
+}
+
+.nv-table * {
+    background-color: lightslategrey;
+    padding: 3px 10px 3px 5px;
+    font-size: 8pt;
+}
+.nv-table th {
+    font-weight: bold;
+}
+
+.nv-table .nv-data {
+    background-color: lightblue;
+}
+
