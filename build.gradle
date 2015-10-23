@@ -8,12 +8,14 @@ buildscript {
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}") 
         classpath("io.spring.gradle:dependency-management-plugin:0.5.2.RELEASE")
+	    classpath('org.cloudfoundry:cf-gradle-plugin:1.1.2')
     }
 }
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
+apply plugin: 'cloudfoundry'
 apply plugin: 'spring-boot' 
 apply plugin: 'io.spring.dependency-management' 
 
@@ -34,6 +36,15 @@ dependencies {
     testCompile("org.springframework.boot:spring-boot-starter-test") 
 }
 
+cloudfoundry {
+    target = "https://api.run.pivotal.io"
+    space = "development"
+    file = file("build/libs/lab-fow0sim-0.0.1-SNAPSHOT.jar")
+    uri = "lab-fow0sim.cfapps.io"
+    memory = 512
+    instances = 1
+    env = [ "APP_VERSION": "0.3" ]
+}
 
 eclipse {
     classpath {
