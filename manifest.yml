@@ -1,0 +1,9 @@
+---
+applications:
+- name: lab-fow0sim
+  memory: 512M
+  instances: 1
+  host: lab-fow0sim
+  path: build/libs/lab-fow0sim-0.0.1-SNAPSHOT.jar
+env:
+  TEST_VAR_MF: "MF Var 1"

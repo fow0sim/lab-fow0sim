@@ -1,6 +1,7 @@
 buildscript {
     ext {
         springBootVersion = '1.2.7.RELEASE'
+        springCloudVersion = '1.2.0.RELEASE'
     }
     repositories {
         mavenCentral()
@@ -32,8 +33,10 @@ repositories {
 
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
-    testCompile("org.springframework.boot:spring-boot-starter-test") 
+    compile "org.springframework.boot:spring-boot-starter-thymeleaf"
+    compile "org.springframework.cloud:spring-cloud-spring-service-connector:${springCloudVersion}"
+    compile "org.springframework.cloud:spring-cloud-cloudfoundry-connector:${springCloudVersion}"
+    testCompile "org.springframework.boot:spring-boot-starter-test"
 }
 
 cloudfoundry {
@@ -43,7 +46,7 @@ cloudfoundry {
     uri = "lab-fow0sim.cfapps.io"
     memory = 512
     instances = 1
-    env = [ "APP_VERSION": "0.3" ]
+    env = [ "APP_VERSION": "0.0.1" ]
 }
 
 eclipse {

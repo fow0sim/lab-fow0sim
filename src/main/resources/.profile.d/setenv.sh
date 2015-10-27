@@ -1,1 +1,1 @@
-export TEST_VAR="Test 1"
+export TEST_VAR_PROFILE="Profile 1"
