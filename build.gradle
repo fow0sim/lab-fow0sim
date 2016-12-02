@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '1.2.7.RELEASE'
+        springBootVersion = '1.3.6.RELEASE'
         springCloudVersion = '1.2.0.RELEASE'
     }
     repositories {
@@ -8,14 +8,16 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}") 
-        classpath("io.spring.gradle:dependency-management-plugin:0.5.2.RELEASE")
+        classpath("io.spring.gradle:dependency-management-plugin:0.6.1.RELEASE")
 	    classpath('org.cloudfoundry:cf-gradle-plugin:1.1.2')
+        classpath('se.transmode.gradle:gradle-docker:1.2')
     }
 }
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
+apply plugin: 'docker'
 apply plugin: 'cloudfoundry'
 apply plugin: 'spring-boot' 
 apply plugin: 'io.spring.dependency-management' 
@@ -24,13 +26,10 @@ jar {
     baseName = 'lab-fow0sim'
     version = '0.0.1-SNAPSHOT'
 }
-sourceCompatibility = 1.7
-targetCompatibility = 1.7
 
 repositories {
     mavenCentral()
 }
-
 
 dependencies {
     compile "org.springframework.boot:spring-boot-starter-thymeleaf"
@@ -55,7 +54,19 @@ eclipse {
          containers 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8'
     }
 }
+group = 'simmig.eu'
 
+task buildDocker(type: Docker, dependsOn: build) {
+    push = false
+    applicationName = jar.baseName
+    dockerfile = file('src/main/docker/Dockerfile')
+    doFirst {
+        copy {
+            from jar
+            into stageDir
+        }
+    }
+}
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.8'
+    gradleVersion = '3.0'
 }
