@@ -1,0 +1,19 @@
+apiVersion: apps/v1beta2
+kind: ReplicaSet
+metadata:
+  name: lab-fow0sim-rs
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      run: lab-fow0sim
+  template:
+    metadata:
+      labels:
+        run: lab-fow0sim
+    spec:
+      containers:
+      - name: lab-fow0sim
+        image: vworlab/lab-fow0sim:latest
+        ports:
+        - containerPort: 8080

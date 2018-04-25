@@ -1,5 +1,6 @@
-FROM docker.io/java:8
+FROM openjdk:11-jre
 VOLUME /tmp
-ADD lab-fow0sim-0.0.1-SNAPSHOT.jar app.jar
+ARG JAR_FILE
+COPY ${JAR_FILE} app.jar
 RUN sh -c 'touch /app.jar'
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
