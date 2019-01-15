@@ -5,7 +5,10 @@ I use it to peek into cloud internals and practicing deployment methods.
 
 ##Build
     gradle clean build
-    gradle buildDocker
+    gradle docker
 
 ##Run
-    docker run -d -p 8888:8080 simmig.eu/lab-fow0sim
+    docker run -dt -p 8888:8080 vworlab/lab-fow0sim
+    
+##Author
+Thomas Simmig

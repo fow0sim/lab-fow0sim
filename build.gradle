@@ -1,6 +1,6 @@
 plugins {
-    id 'org.springframework.boot' version '2.0.0.RELEASE'
-    id "com.palantir.docker" version "0.19.2"
+    id 'org.springframework.boot' version '2.1.2.RELEASE'
+    id "com.palantir.docker" version "0.21.0"
 }
 
 apply plugin: 'java'
@@ -8,7 +8,7 @@ apply plugin: 'io.spring.dependency-management'
 
 jar {
     baseName = 'lab-fow0sim'
-    version = '0.0.1-SNAPSHOT'
+    version = '0.1.0'
 }
 
 repositories {
@@ -31,5 +31,5 @@ docker {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '4.6'
+    gradleVersion = '4.10.2'
 }
